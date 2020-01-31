@@ -37,10 +37,7 @@ class FirstViewController: UIViewController, Storyboarded, Coordinated {
 		super.viewDidLoad()
 
 		self.navigationController?.navigationBar.isHidden = false
-		self.navigationController?
-			.navigationBar
-			.topItem?
-			.rightBarButtonItem = UIBarButtonItem(
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(
 				title: "Cancel",
 				style: .done,
 				target: self,
@@ -53,6 +50,13 @@ class FirstViewController: UIViewController, Storyboarded, Coordinated {
 				action: #selector(dismissKeyboard)
 			)
 		)
+
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Invalid Coordinator Type")
+		}
+
+		self.emailField.text = coordinator.userSocialGraphDTO.email
+		self.passwordField.text = coordinator.userSocialGraphDTO.password
 	}
 
 	@objc func cancelPressed() {

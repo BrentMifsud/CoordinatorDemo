@@ -12,7 +12,6 @@
 		8438F2BD23E344BE006569D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8438F2BB23E344BE006569D1 /* Main.storyboard */; };
 		8438F2BF23E344BF006569D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8438F2BE23E344BF006569D1 /* Assets.xcassets */; };
 		8438F2C223E344BF006569D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8438F2C023E344BF006569D1 /* LaunchScreen.storyboard */; };
-		8438F2CB23E34AB9006569D1 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2CA23E34AB9006569D1 /* AuthCoordinator.swift */; };
 		8438F2CE23E35CC8006569D1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2CD23E35CC8006569D1 /* FirstViewController.swift */; };
 		8438F2D023E35CD5006569D1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2CF23E35CD5006569D1 /* SecondViewController.swift */; };
 		8438F2D223E35CE3006569D1 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2D123E35CE3006569D1 /* ThirdViewController.swift */; };
@@ -33,7 +32,6 @@
 		8438F2BE23E344BF006569D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8438F2C123E344BF006569D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8438F2C323E344BF006569D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8438F2CA23E34AB9006569D1 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		8438F2CD23E35CC8006569D1 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		8438F2CF23E35CD5006569D1 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		8438F2D123E35CE3006569D1 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 		8438F2C923E344CA006569D1 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				8438F2CA23E34AB9006569D1 /* AuthCoordinator.swift */,
 				8438F2E223E3B8E5006569D1 /* Coordinated.swift */,
 				8438F2D723E3A729006569D1 /* Coordinator.swift */,
 				8438F2D923E3A79A006569D1 /* MainCoordinator.swift */,
@@ -202,7 +199,6 @@
 				8438F2D223E35CE3006569D1 /* ThirdViewController.swift in Sources */,
 				8438F2E623E3D4D1006569D1 /* PermissionViewController.swift in Sources */,
 				8438F2B623E344BE006569D1 /* AppDelegate.swift in Sources */,
-				8438F2CB23E34AB9006569D1 /* AuthCoordinator.swift in Sources */,
 				8438F2E323E3B8E5006569D1 /* Coordinated.swift in Sources */,
 				8438F2DC23E3A858006569D1 /* Storyboarded.swift in Sources */,
 			);

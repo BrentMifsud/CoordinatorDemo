@@ -35,10 +35,7 @@ class PermissionViewController: UIViewController, Storyboarded, Coordinated {
 		super.viewDidLoad()
 
 		self.navigationController?.navigationBar.isHidden = false
-		self.navigationController?
-			.navigationBar
-			.topItem?
-			.rightBarButtonItem = UIBarButtonItem(
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(
 				title: "Cancel",
 				style: .done,
 				target: self,

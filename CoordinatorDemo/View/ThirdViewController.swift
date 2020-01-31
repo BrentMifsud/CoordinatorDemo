@@ -38,10 +38,7 @@ class ThirdViewController: UIViewController, Storyboarded, Coordinated {
 		super.viewDidLoad()
 
 		self.navigationController?.navigationBar.isHidden = false
-		self.navigationController?
-			.navigationBar
-			.topItem?
-			.rightBarButtonItem = UIBarButtonItem(
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(
 				title: "Cancel",
 				style: .done,
 				target: self,
@@ -54,6 +51,12 @@ class ThirdViewController: UIViewController, Storyboarded, Coordinated {
 				action: #selector(dismissKeyboard)
 			)
 		)
+
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Invalid Coordinator Type")
+		}
+
+		self.usernameField.text = coordinator.userSocialGraphDTO.username
 	}
 
 	@objc func cancelPressed() {

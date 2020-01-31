@@ -62,20 +62,30 @@ class MainCoordinator: Coordinator {
 	//
 
 	func nextView() {
-		switch authState {
-			case .notAuthenticatedNoPermission,
-				 .notAuthenticatedWithPermission:
-				var nextVC = getNextSignUpView() as! UIViewController & Coordinated
-				nextVC.coordinator = self
-				navigationController.pushViewController(nextVC, animated: true)
-			case .authenticatedWithPermission:
-				let nextVC = GoRideViewController.instantiate()
-				nextVC.coordinator = self
-				navigationController.pushViewController(nextVC, animated: true)
-			case .authenticatedNoPermission:
-				let nextVC = PermissionViewController.instantiate()
-				nextVC.coordinator = self
-				navigationController.pushViewController(nextVC, animated: true)
+		guard let currentVC = self.currentViewController else {
+			fatalError("Invalid current view controller.")
+		}
+
+		if currentVC is LandingViewController || currentVC is PermissionViewController {
+			switch authState {
+				case .notAuthenticatedNoPermission,
+					 .notAuthenticatedWithPermission:
+					var nextVC = getNextSignUpView() as! UIViewController & Coordinated
+					nextVC.coordinator = self
+					navigationController.pushViewController(nextVC, animated: true)
+				case .authenticatedWithPermission:
+					let nextVC = GoRideViewController.instantiate()
+					nextVC.coordinator = self
+					navigationController.pushViewController(nextVC, animated: true)
+				case .authenticatedNoPermission:
+					let nextVC = PermissionViewController.instantiate()
+					nextVC.coordinator = self
+					navigationController.pushViewController(nextVC, animated: true)
+			}
+		} else {
+			var nextVC = getNextSignUpView() as! UIViewController & Coordinated
+			nextVC.coordinator = self
+			navigationController.pushViewController(nextVC, animated: true)
 		}
 	}
 
@@ -98,26 +108,28 @@ class MainCoordinator: Coordinator {
 			fatalError("Invalid current view controller.")
 		}
 
-		guard userSocialGraphDTO.socialGraphState != .completeESR
-			&& userSocialGraphDTO.socialGraphState != .completeAuthProvider else {
-				fatalError("Should never reach this point.")
-		}
-
 		if let _ = currentVC as? LandingViewController {
 			return FirstViewController.instantiate()
 		} else if let _ = currentVC as? FirstViewController {
 			return SecondViewController.instantiate()
-		} else {
+		} else if let _ = currentVC as? SecondViewController {
 			return ThirdViewController.instantiate()
+		} else if let _ = currentVC as? ThirdViewController {
+			if !permissionGranted {
+				return PermissionViewController.instantiate()
+			} else {
+				return GoRideViewController.instantiate()
+			}
 		}
+
+		fatalError("Should never reach this point")
 	}
+
+	enum AuthState {
+		case authenticatedWithPermission
+		case authenticatedNoPermission
+		case notAuthenticatedWithPermission
+		case notAuthenticatedNoPermission
+	}
+
 }
-
-enum AuthState {
-	case authenticatedWithPermission
-	case authenticatedNoPermission
-	case notAuthenticatedWithPermission
-	case notAuthenticatedNoPermission
-}
-
-
