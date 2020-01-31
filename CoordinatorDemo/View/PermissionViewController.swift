@@ -22,10 +22,10 @@ class PermissionViewController: UIViewController, Storyboarded, Coordinated {
 		coordinator.permissionGranted = true
 
 		debugPrint("PERMISSION BUTTON PRESSED: #########################")
-		debugPrint(coordinator.userSocialGraphDTO)
-		debugPrint(coordinator.socialGraphSent)
-		debugPrint(coordinator.permissionGranted)
-		debugPrint(coordinator.authState)
+		debugPrint("CURRENT SOCIAL GRAPH: \(coordinator.userSocialGraphDTO)")
+		debugPrint("SOCIAL GRAPH AUTH WITH API: \(coordinator.socialGraphSent)")
+		debugPrint("PERMISSION GRANTED: \(coordinator.permissionGranted)")
+		debugPrint("CURRENT AUTH STATE: \(coordinator.authState)")
 		debugPrint("####################################################")
 
 		coordinator.nextView()

@@ -86,10 +86,10 @@ class MainCoordinator: Coordinator {
 		self.navigationController.popToRootViewController(animated: true)
 
 		debugPrint("DEAUTHORIZING USER: ################################")
-		debugPrint(self.userSocialGraphDTO)
-		debugPrint(self.socialGraphSent)
-		debugPrint(self.permissionGranted)
-		debugPrint(self.authState)
+		debugPrint("CURRENT SOCIAL GRAPH: \(self.userSocialGraphDTO)")
+		debugPrint("SOCIAL GRAPH AUTH WITH API: \(self.socialGraphSent)")
+		debugPrint("PERMISSION GRANTED: \(self.permissionGranted)")
+		debugPrint("CURRENT AUTH STATE: \(self.authState)")
 		debugPrint("####################################################")
 	}
 

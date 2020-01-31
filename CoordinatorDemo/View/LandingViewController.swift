@@ -22,6 +22,13 @@ class LandingViewController: UIViewController, Storyboarded, Coordinated {
 		coordinator.userSocialGraphDTO = UserSocialGraphDTO()
 		coordinator.permissionGranted = false
 
+		debugPrint("FRESH SIGN-UP: #####################################")
+		debugPrint("CURRENT SOCIAL GRAPH: \(coordinator.userSocialGraphDTO)")
+		debugPrint("SOCIAL GRAPH AUTH WITH API: \(coordinator.socialGraphSent)")
+		debugPrint("PERMISSION GRANTED: \(coordinator.permissionGranted)")
+		debugPrint("CURRENT AUTH STATE: \(coordinator.authState)")
+		debugPrint("####################################################")
+
 		coordinator.nextView()
 	}
 
@@ -39,6 +46,13 @@ class LandingViewController: UIViewController, Storyboarded, Coordinated {
 			username: "JoeTest1234",
 			password: "testpassword"
 		)
+
+		debugPrint("LOGIN WITH PERMISSIONS: ############################")
+		debugPrint("CURRENT SOCIAL GRAPH: \(coordinator.userSocialGraphDTO)")
+		debugPrint("SOCIAL GRAPH AUTH WITH API: \(coordinator.socialGraphSent)")
+		debugPrint("PERMISSION GRANTED: \(coordinator.permissionGranted)")
+		debugPrint("CURRENT AUTH STATE: \(coordinator.authState)")
+		debugPrint("####################################################")
 
 		coordinator.socialGraphSent = true
 		coordinator.permissionGranted = true
@@ -63,6 +77,13 @@ class LandingViewController: UIViewController, Storyboarded, Coordinated {
 
 		coordinator.socialGraphSent = true
 		coordinator.permissionGranted = false
+
+		debugPrint("LOGIN WITHOUT PERMISSIONS: #########################")
+		debugPrint("CURRENT SOCIAL GRAPH: \(coordinator.userSocialGraphDTO)")
+		debugPrint("SOCIAL GRAPH AUTH WITH API: \(coordinator.socialGraphSent)")
+		debugPrint("PERMISSION GRANTED: \(coordinator.permissionGranted)")
+		debugPrint("CURRENT AUTH STATE: \(coordinator.authState)")
+		debugPrint("####################################################")
 		
 		coordinator.nextView()
 	}
@@ -77,6 +98,13 @@ class LandingViewController: UIViewController, Storyboarded, Coordinated {
 		coordinator.socialGraphSent = false
 		coordinator.permissionGranted = true
 
+		debugPrint("SIGN-UP WITH PERMISSIONS: ##########################")
+		debugPrint("CURRENT SOCIAL GRAPH: \(coordinator.userSocialGraphDTO)")
+		debugPrint("SOCIAL GRAPH AUTH WITH API: \(coordinator.socialGraphSent)")
+		debugPrint("PERMISSION GRANTED: \(coordinator.permissionGranted)")
+		debugPrint("CURRENT AUTH STATE: \(coordinator.authState)")
+		debugPrint("####################################################")
+
 		coordinator.nextView()
 	}
 
@@ -88,6 +116,17 @@ class LandingViewController: UIViewController, Storyboarded, Coordinated {
 		super.viewWillAppear(false)
 
 		self.navigationController?.navigationBar.isHidden = true
+
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Invalid Coordinator")
+		}
+
+		debugPrint("LANDING SCREEN APPEARED: ###########################")
+		debugPrint("CURRENT SOCIAL GRAPH: \(coordinator.userSocialGraphDTO)")
+		debugPrint("SOCIAL GRAPH AUTH WITH API: \(coordinator.socialGraphSent)")
+		debugPrint("PERMISSION GRANTED: \(coordinator.permissionGranted)")
+		debugPrint("CURRENT AUTH STATE: \(coordinator.authState)")
+		debugPrint("####################################################")
 	}
 }
 

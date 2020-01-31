@@ -23,11 +23,11 @@ class FirstViewController: UIViewController, Storyboarded, Coordinated {
 		coordinator.userSocialGraphDTO.email = emailField.text ?? ""
 		coordinator.userSocialGraphDTO.password = passwordField.text ?? ""
 
-		debugPrint("NEXT BUTTON PRESSED IN FIRST: ######################")
-		debugPrint(coordinator.userSocialGraphDTO)
-		debugPrint(coordinator.socialGraphSent)
-		debugPrint(coordinator.permissionGranted)
-		debugPrint(coordinator.authState)
+		debugPrint("EMAIL AND PASSWORD ENTERED: ########################")
+		debugPrint("CURRENT SOCIAL GRAPH: \(coordinator.userSocialGraphDTO)")
+		debugPrint("SOCIAL GRAPH AUTH WITH API: \(coordinator.socialGraphSent)")
+		debugPrint("PERMISSION GRANTED: \(coordinator.permissionGranted)")
+		debugPrint("CURRENT AUTH STATE: \(coordinator.authState)")
 		debugPrint("####################################################")
 
 		coordinator.nextView()

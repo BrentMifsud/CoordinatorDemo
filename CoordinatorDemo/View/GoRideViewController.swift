@@ -23,5 +23,16 @@ class GoRideViewController: UIViewController, Storyboarded, Coordinated {
 		super.viewWillAppear(animated)
 
 		self.navigationController?.navigationBar.isHidden = true
+
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Invalid Coordinator")
+		}
+
+		debugPrint("GORIDE SCREEN APPEARED: ###########################")
+		debugPrint("CURRENT SOCIAL GRAPH: \(coordinator.userSocialGraphDTO)")
+		debugPrint("SOCIAL GRAPH AUTH WITH API: \(coordinator.socialGraphSent)")
+		debugPrint("PERMISSION GRANTED: \(coordinator.permissionGranted)")
+		debugPrint("CURRENT AUTH STATE: \(coordinator.authState)")
+		debugPrint("####################################################")
 	}
 }

@@ -24,11 +24,11 @@ class ThirdViewController: UIViewController, Storyboarded, Coordinated {
 		coordinator.userSocialGraphDTO.username = username
 		coordinator.socialGraphSent = true
 
-		debugPrint("COMPLETE BUTTON PRESSED IN THIRD: ######################")
-		debugPrint(coordinator.userSocialGraphDTO)
-		debugPrint(coordinator.socialGraphSent)
-		debugPrint(coordinator.permissionGranted)
-		debugPrint(coordinator.authState)
+		debugPrint("USERNAME ENTERED: ##################################")
+		debugPrint("CURRENT SOCIAL GRAPH: \(coordinator.userSocialGraphDTO)")
+		debugPrint("SOCIAL GRAPH AUTH WITH API: \(coordinator.socialGraphSent)")
+		debugPrint("PERMISSION GRANTED: \(coordinator.permissionGranted)")
+		debugPrint("CURRENT AUTH STATE: \(coordinator.authState)")
 		debugPrint("####################################################")
 
 		coordinator.nextView()
