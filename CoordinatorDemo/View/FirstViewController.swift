@@ -20,10 +20,8 @@ class FirstViewController: UIViewController, Storyboarded, Coordinated {
 			fatalError("Invalid Coordinator Type")
 		}
 
-		coordinator.userSocialGraphDTO = UserSocialGraphDTO(
-			email: emailField.text ?? "",
-			password: passwordField.text ?? ""
-		)
+		coordinator.userSocialGraphDTO.email = emailField.text ?? ""
+		coordinator.userSocialGraphDTO.password = passwordField.text ?? ""
 
 		coordinator.nextView()
 	}

@@ -76,14 +76,14 @@
 		8438F2B423E344BE006569D1 /* CoordinatorDemo */ = {
 			isa = PBXGroup;
 			children = (
+				8438F2C323E344BF006569D1 /* Info.plist */,
+				8438F2B523E344BE006569D1 /* AppDelegate.swift */,
+				8438F2BE23E344BF006569D1 /* Assets.xcassets */,
+				8438F2C923E344CA006569D1 /* Coordinator */,
+				8438F2C023E344BF006569D1 /* LaunchScreen.storyboard */,
+				8438F2BB23E344BE006569D1 /* Main.storyboard */,
 				8438F2DF23E3B57F006569D1 /* Model */,
 				8438F2CC23E35C9E006569D1 /* View */,
-				8438F2C923E344CA006569D1 /* Coordinator */,
-				8438F2B523E344BE006569D1 /* AppDelegate.swift */,
-				8438F2BB23E344BE006569D1 /* Main.storyboard */,
-				8438F2BE23E344BF006569D1 /* Assets.xcassets */,
-				8438F2C023E344BF006569D1 /* LaunchScreen.storyboard */,
-				8438F2C323E344BF006569D1 /* Info.plist */,
 			);
 			path = CoordinatorDemo;
 			sourceTree = "<group>";
@@ -92,10 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				8438F2CA23E34AB9006569D1 /* AuthCoordinator.swift */,
+				8438F2E223E3B8E5006569D1 /* Coordinated.swift */,
 				8438F2D723E3A729006569D1 /* Coordinator.swift */,
 				8438F2D923E3A79A006569D1 /* MainCoordinator.swift */,
 				8438F2DB23E3A858006569D1 /* Storyboarded.swift */,
-				8438F2E223E3B8E5006569D1 /* Coordinated.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -103,12 +103,12 @@
 		8438F2CC23E35C9E006569D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8438F2B923E344BE006569D1 /* LandingViewController.swift */,
 				8438F2CD23E35CC8006569D1 /* FirstViewController.swift */,
+				8438F2D523E35CFE006569D1 /* GoRideViewController.swift */,
+				8438F2B923E344BE006569D1 /* LandingViewController.swift */,
+				8438F2D323E35CF1006569D1 /* PermissionViewController.swift */,
 				8438F2CF23E35CD5006569D1 /* SecondViewController.swift */,
 				8438F2D123E35CE3006569D1 /* ThirdViewController.swift */,
-				8438F2D323E35CF1006569D1 /* PermissionViewController.swift */,
-				8438F2D523E35CFE006569D1 /* GoRideViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

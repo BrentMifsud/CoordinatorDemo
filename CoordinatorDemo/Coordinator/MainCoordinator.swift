@@ -63,7 +63,8 @@ class MainCoordinator: Coordinator {
 
 	func nextView() {
 		switch authState {
-			case .notAuthenticatedNoPermission, .notAuthenticatedWithPermission:
+			case .notAuthenticatedNoPermission,
+				 .notAuthenticatedWithPermission:
 				var nextVC = getNextSignUpView() as! UIViewController & Coordinated
 				nextVC.coordinator = self
 				navigationController.pushViewController(nextVC, animated: true)
@@ -74,7 +75,6 @@ class MainCoordinator: Coordinator {
 			case .authenticatedNoPermission:
 				let nextVC = PermissionViewController.instantiate()
 				nextVC.coordinator = self
-
 		}
 	}
 

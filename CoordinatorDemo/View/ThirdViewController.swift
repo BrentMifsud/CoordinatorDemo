@@ -12,40 +12,40 @@ class ThirdViewController: UIViewController, Storyboarded, Coordinated {
 
 	var coordinator: Coordinator?
 
-	@IBOutlet weak var navigationBar: UINavigationBar!
+	@IBOutlet weak var usernameField: UITextField!
 
-	private var authCoordinator: AuthCoordinator = AuthCoordinator.sharedInstance
+	@IBAction func nextButtonPressed(_ sender: Any) {
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Invalid Coordinator Type")
+		}
 
-	@IBAction func thirdButtonPressed(_ sender: Any) {
-		authCoordinator.thirdScreenComplete = true
-	}
+		let username = usernameField.text ?? ""
 
-	@IBAction func completeSignInButtonPressed(_ sender: Any) {
-		authCoordinator.authScreensComplete = true
-		presentNextVC()
+		coordinator.userSocialGraphDTO.username = username
+
+		coordinator.nextView()
 	}
 
 	@IBAction func cancelPressed(_ sender: Any) {
-		authCoordinator.deauthorize()
-		self.navigationController?.popToRootViewController(animated: true)
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Invalid Coordinator Type")
+		}
+
+		coordinator.deauthorize()
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		self.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: #selector(self.navigationController?.popViewController(animated:))
+		self.view.addGestureRecognizer(
+			UITapGestureRecognizer(
+				target: self,
+				action: #selector(dismissKeyboard)
+			)
 		)
 	}
 
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-
-		authCoordinator.currentScreen = self
-	}
-
-	private func presentNextVC(){
-		let nextVC = authCoordinator.nextView
-
-		self.navigationController?.pushViewController(nextVC, animated: true)
+	@objc func dismissKeyboard() {
+		self.usernameField.resignFirstResponder()
 	}
 }

@@ -12,47 +12,48 @@ class SecondViewController: UIViewController, Storyboarded, Coordinated {
 
 	var coordinator: Coordinator?
 
-	private var authCoordinator: AuthCoordinator = AuthCoordinator.sharedInstance
-
-	@IBAction func secondButtonPressed(_ sender: Any) {
-		authCoordinator.secondScreenComplete = true
-	}
+	@IBOutlet weak var firstNameField: UITextField!
+	@IBOutlet weak var lastNameField: UITextField!
 
 	@IBAction func nextButtonPressed(_ sender: Any) {
-		presentNextVC()
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Invalid Coordinator Type")
+		}
+
+		let firstName = firstNameField.text ?? ""
+		let lastName = lastNameField.text ?? ""
+		let realName = "\(firstName) \(lastName)"
+			.trimmingCharacters(in: .whitespacesAndNewlines)
+
+		coordinator.userSocialGraphDTO.firstName = firstName
+		coordinator.userSocialGraphDTO.lastName = lastName
+		coordinator.userSocialGraphDTO.realName = realName
+
+		coordinator.nextView()
 	}
 
 	@IBAction func cancelPressed(_ sender: Any) {
-		authCoordinator.deauthorize()
-		self.navigationController?.popToRootViewController(animated: true)
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Invalid Coordinator Type")
+		}
+
+		coordinator.deauthorize()
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.navigationController?.navigationBar.isHidden = false
+
+		self.view.addGestureRecognizer(
+			UITapGestureRecognizer(
+				target: self,
+				action: #selector(dismissKeyboard)
+			)
+		)
 	}
 
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-
-		authCoordinator.currentScreen = self
+	@objc func dismissKeyboard() {
+		self.firstNameField.resignFirstResponder()
+		self.lastNameField.resignFirstResponder()
 	}
-
-	private func presentNextVC(){
-		let nextVC = authCoordinator.nextView
-
-		self.navigationController?.pushViewController(nextVC, animated: true)
-	}
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
