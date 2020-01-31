@@ -23,19 +23,29 @@ class FirstViewController: UIViewController, Storyboarded, Coordinated {
 		coordinator.userSocialGraphDTO.email = emailField.text ?? ""
 		coordinator.userSocialGraphDTO.password = passwordField.text ?? ""
 
+		debugPrint("NEXT BUTTON PRESSED IN FIRST: ######################")
+		debugPrint(coordinator.userSocialGraphDTO)
+		debugPrint(coordinator.socialGraphSent)
+		debugPrint(coordinator.permissionGranted)
+		debugPrint(coordinator.authState)
+		debugPrint("####################################################")
+
 		coordinator.nextView()
-	}
-
-	@IBAction func cancelPressed(_ sender: Any) {
-		guard let coordinator = coordinator as? MainCoordinator else {
-			fatalError("Invalid Coordinator Type")
-		}
-
-		coordinator.deauthorize()
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		self.navigationController?.navigationBar.isHidden = false
+		self.navigationController?
+			.navigationBar
+			.topItem?
+			.rightBarButtonItem = UIBarButtonItem(
+				title: "Cancel",
+				style: .done,
+				target: self,
+				action: #selector(cancelPressed)
+		)
 
 		self.view.addGestureRecognizer(
 			UITapGestureRecognizer(
@@ -43,6 +53,14 @@ class FirstViewController: UIViewController, Storyboarded, Coordinated {
 				action: #selector(dismissKeyboard)
 			)
 		)
+	}
+
+	@objc func cancelPressed() {
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Invalid Coordinator Type")
+		}
+
+		coordinator.deauthorize()
 	}
 
 	@objc func dismissKeyboard() {

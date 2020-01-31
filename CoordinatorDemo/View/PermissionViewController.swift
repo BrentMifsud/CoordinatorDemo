@@ -12,50 +12,45 @@ class PermissionViewController: UIViewController, Storyboarded, Coordinated {
 
 	var coordinator: Coordinator?
 
-	private var authCoordinator: AuthCoordinator = AuthCoordinator.sharedInstance
+	@IBOutlet weak var usernameField: UITextField!
 
-	@IBOutlet weak var navigationBar: UINavigationBar!
+	@IBAction func nextButtonPressed(_ sender: Any) {
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Invalid Coordinator Type")
+		}
 
-	@IBAction func permissionButtonPressed(_ sender: Any) {
-		authCoordinator.permissionsGiven = true
+		coordinator.permissionGranted = true
 
-		presentNextVC()
-	}
+		debugPrint("PERMISSION BUTTON PRESSED: #########################")
+		debugPrint(coordinator.userSocialGraphDTO)
+		debugPrint(coordinator.socialGraphSent)
+		debugPrint(coordinator.permissionGranted)
+		debugPrint(coordinator.authState)
+		debugPrint("####################################################")
 
-	@IBAction func cancelPressed(_ sender: Any) {
-		authCoordinator.deauthorize()
-		self.navigationController?.popToRootViewController(animated: true)
-	}
-
-
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-
-		authCoordinator.currentScreen = self
+		coordinator.nextView()
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		self.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: #selector(self.navigationController?.popViewController(animated:))
+
+		self.navigationController?.navigationBar.isHidden = false
+		self.navigationController?
+			.navigationBar
+			.topItem?
+			.rightBarButtonItem = UIBarButtonItem(
+				title: "Cancel",
+				style: .done,
+				target: self,
+				action: #selector(cancelPressed)
 		)
 	}
 
-	private func presentNextVC(){
-		let nextVC = authCoordinator.nextView
+	@objc func cancelPressed() {
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Invalid Coordinator Type")
+		}
 
-		self.navigationController?.pushViewController(nextVC, animated: true)
+		coordinator.deauthorize()
 	}
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

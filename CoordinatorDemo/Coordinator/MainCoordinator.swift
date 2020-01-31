@@ -75,6 +75,7 @@ class MainCoordinator: Coordinator {
 			case .authenticatedNoPermission:
 				let nextVC = PermissionViewController.instantiate()
 				nextVC.coordinator = self
+				navigationController.pushViewController(nextVC, animated: true)
 		}
 	}
 
@@ -83,6 +84,13 @@ class MainCoordinator: Coordinator {
 		self.socialGraphSent = false
 		self.permissionGranted = false
 		self.navigationController.popToRootViewController(animated: true)
+
+		debugPrint("DEAUTHORIZING USER: ################################")
+		debugPrint(self.userSocialGraphDTO)
+		debugPrint(self.socialGraphSent)
+		debugPrint(self.permissionGranted)
+		debugPrint(self.authState)
+		debugPrint("####################################################")
 	}
 
 	private func getNextSignUpView() -> UIViewController {

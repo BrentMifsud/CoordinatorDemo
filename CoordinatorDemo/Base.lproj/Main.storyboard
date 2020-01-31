@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -54,7 +55,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="noPermissionsPressed:" destination="8TH-eU-qjB" eventType="touchUpInside" id="0z4-5y-yVE"/>
+                                    <action selector="loginWithoutPermission:" destination="8TH-eU-qjB" eventType="touchUpInside" id="0z4-5y-yVE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l63-Wo-ErM">
@@ -68,7 +69,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="permissionsNoAuthPressed:" destination="8TH-eU-qjB" eventType="touchUpInside" id="5UX-A0-TsV"/>
+                                    <action selector="signUpWithPermission:" destination="8TH-eU-qjB" eventType="touchUpInside" id="5UX-A0-TsV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Eat Sleep Ride" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kza-zs-Dv3">
@@ -144,7 +145,7 @@
         <!--Second Screen-->
         <scene sceneID="emJ-Bk-Bjg">
             <objects>
-                <viewController storyboardIdentifier="SecondViewController" title="First Screen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rXx-7y-FSh" userLabel="Second Screen" customClass="SecondViewController" customModule="CoordinatorDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" title="Second Screen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rXx-7y-FSh" userLabel="Second Screen" customClass="SecondViewController" customModule="CoordinatorDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4rg-z5-7ig">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,7 +199,7 @@
         <!--Third Screen-->
         <scene sceneID="B1b-xZ-wm5">
             <objects>
-                <viewController storyboardIdentifier="ThirdViewController" title="First Screen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N0l-q0-zys" userLabel="Third Screen" customClass="ThirdViewController" customModule="CoordinatorDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdViewController" title="Third Screen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N0l-q0-zys" userLabel="Third Screen" customClass="ThirdViewController" customModule="CoordinatorDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NSA-jb-77l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,14 +214,14 @@
                                 <rect key="frame" x="20" y="591" width="374" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Next"/>
+                                <state key="normal" title="Complete"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="nextButtonPressed:" destination="N0l-q0-zys" eventType="touchUpInside" id="bh7-iH-cl9"/>
+                                    <action selector="completeButtonPressed:" destination="N0l-q0-zys" eventType="touchUpInside" id="bh7-iH-cl9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK8-tj-xCK">
@@ -241,6 +242,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oio-3e-0Q6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="238" y="353"/>
+        </scene>
+        <!--Permission Screen-->
+        <scene sceneID="kyo-A5-YVC">
+            <objects>
+                <viewController storyboardIdentifier="PermissionViewController" title="Permission Screen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1No-iY-6ho" userLabel="Permission Screen" customClass="PermissionViewController" customModule="CoordinatorDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N0Z-eh-EIb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Nc-pF-vbb">
+                                <rect key="frame" x="20" y="591" width="374" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Request Permissions"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="1No-iY-6ho" eventType="touchUpInside" id="6tE-VP-EgX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We need permissions to continue." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLw-QO-UFI">
+                                <rect key="frame" x="20" y="117" width="374" height="88"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="rco-1L-P2v"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uOi-1J-LcE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1062" y="354"/>
+        </scene>
+        <!--Go Ride Screen-->
+        <scene sceneID="hIj-pG-XuW">
+            <objects>
+                <viewController storyboardIdentifier="GoRideViewController" title="Go Ride Screen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Jp-W9-nUO" customClass="GoRideViewController" customModule="CoordinatorDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6pq-cP-TYh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="93q-i8-IcN">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H81-mv-qwi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Go Ride View" id="9Jd-KY-JEb">
+                                        <barButtonItem key="rightBarButtonItem" title="Logout" id="VMa-b0-VNl">
+                                            <connections>
+                                                <action selector="logoutPressed:" destination="7Jp-W9-nUO" id="zBf-we-yZc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="zwJ-RD-yb3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xYp-ME-Xvs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1842.0289855072465" y="353.57142857142856"/>
         </scene>
     </scenes>
 </document>

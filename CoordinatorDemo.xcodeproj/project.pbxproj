@@ -16,13 +16,13 @@
 		8438F2CE23E35CC8006569D1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2CD23E35CC8006569D1 /* FirstViewController.swift */; };
 		8438F2D023E35CD5006569D1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2CF23E35CD5006569D1 /* SecondViewController.swift */; };
 		8438F2D223E35CE3006569D1 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2D123E35CE3006569D1 /* ThirdViewController.swift */; };
-		8438F2D423E35CF1006569D1 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2D323E35CF1006569D1 /* PermissionViewController.swift */; };
 		8438F2D623E35CFE006569D1 /* GoRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2D523E35CFE006569D1 /* GoRideViewController.swift */; };
 		8438F2D823E3A729006569D1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2D723E3A729006569D1 /* Coordinator.swift */; };
 		8438F2DA23E3A79A006569D1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2D923E3A79A006569D1 /* MainCoordinator.swift */; };
 		8438F2DC23E3A858006569D1 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2DB23E3A858006569D1 /* Storyboarded.swift */; };
 		8438F2E123E3B597006569D1 /* UserSocialGraphDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2E023E3B597006569D1 /* UserSocialGraphDTO.swift */; };
 		8438F2E323E3B8E5006569D1 /* Coordinated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2E223E3B8E5006569D1 /* Coordinated.swift */; };
+		8438F2E623E3D4D1006569D1 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438F2E423E3D495006569D1 /* PermissionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,13 +37,13 @@
 		8438F2CD23E35CC8006569D1 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		8438F2CF23E35CD5006569D1 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		8438F2D123E35CE3006569D1 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		8438F2D323E35CF1006569D1 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		8438F2D523E35CFE006569D1 /* GoRideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoRideViewController.swift; sourceTree = "<group>"; };
 		8438F2D723E3A729006569D1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8438F2D923E3A79A006569D1 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		8438F2DB23E3A858006569D1 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		8438F2E023E3B597006569D1 /* UserSocialGraphDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSocialGraphDTO.swift; sourceTree = "<group>"; };
 		8438F2E223E3B8E5006569D1 /* Coordinated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinated.swift; sourceTree = "<group>"; };
+		8438F2E423E3D495006569D1 /* PermissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +103,10 @@
 		8438F2CC23E35C9E006569D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8438F2E423E3D495006569D1 /* PermissionViewController.swift */,
 				8438F2CD23E35CC8006569D1 /* FirstViewController.swift */,
 				8438F2D523E35CFE006569D1 /* GoRideViewController.swift */,
 				8438F2B923E344BE006569D1 /* LandingViewController.swift */,
-				8438F2D323E35CF1006569D1 /* PermissionViewController.swift */,
 				8438F2CF23E35CD5006569D1 /* SecondViewController.swift */,
 				8438F2D123E35CE3006569D1 /* ThirdViewController.swift */,
 			);
@@ -193,7 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8438F2D023E35CD5006569D1 /* SecondViewController.swift in Sources */,
-				8438F2D423E35CF1006569D1 /* PermissionViewController.swift in Sources */,
 				8438F2D823E3A729006569D1 /* Coordinator.swift in Sources */,
 				8438F2CE23E35CC8006569D1 /* FirstViewController.swift in Sources */,
 				8438F2BA23E344BE006569D1 /* LandingViewController.swift in Sources */,
@@ -201,6 +200,7 @@
 				8438F2E123E3B597006569D1 /* UserSocialGraphDTO.swift in Sources */,
 				8438F2D623E35CFE006569D1 /* GoRideViewController.swift in Sources */,
 				8438F2D223E35CE3006569D1 /* ThirdViewController.swift in Sources */,
+				8438F2E623E3D4D1006569D1 /* PermissionViewController.swift in Sources */,
 				8438F2B623E344BE006569D1 /* AppDelegate.swift in Sources */,
 				8438F2CB23E34AB9006569D1 /* AuthCoordinator.swift in Sources */,
 				8438F2E323E3B8E5006569D1 /* Coordinated.swift in Sources */,

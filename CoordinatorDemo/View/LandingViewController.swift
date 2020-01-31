@@ -10,12 +10,22 @@ import UIKit
 
 class LandingViewController: UIViewController, Storyboarded, Coordinated {
 
-	private let authCoordinator = AuthCoordinator.sharedInstance
-
 	var coordinator: Coordinator?
 
-	@IBOutlet weak var navigationBar: UINavigationItem!
 
+	/// User is signing up from scratch.
+	@IBAction func signUpPressed(_ sender: Any) {
+		guard let coordinator = coordinator as? MainCoordinator else {
+			fatalError("Cannot access Main Coordinator")
+		}
+
+		coordinator.userSocialGraphDTO = UserSocialGraphDTO()
+		coordinator.permissionGranted = false
+
+		coordinator.nextView()
+	}
+
+	/// User is valid and is logging in. Permissions were granted previously.
 	@IBAction func loginButtonPressed(_ sender: Any) {
 		guard let coordinator = coordinator as? MainCoordinator else {
 			fatalError("Could not find main coordinator")
@@ -36,18 +46,8 @@ class LandingViewController: UIViewController, Storyboarded, Coordinated {
 		coordinator.nextView()
 	}
 
-	@IBAction func signUpPressed(_ sender: Any) {
-		guard let coordinator = coordinator as? MainCoordinator else {
-			fatalError("Cannot access Main Coordinator")
-		}
-
-		coordinator.userSocialGraphDTO = UserSocialGraphDTO()
-		coordinator.permissionGranted = false
-
-		coordinator.nextView()
-	}
-
-	@IBAction func noPermissionsPressed(_ sender: Any) {
+	/// User reinstalled app and is logging in without permissions.
+	@IBAction func loginWithoutPermission(_ sender: Any) {
 		guard let coordinator = coordinator as? MainCoordinator else {
 			fatalError("Cannot access Main Coordinator")
 		}
@@ -67,7 +67,8 @@ class LandingViewController: UIViewController, Storyboarded, Coordinated {
 		coordinator.nextView()
 	}
 
-	@IBAction func permissionsNoAuthPressed(_ sender: Any) {
+	/// User has downloaded app for the first time and granted themself permissions from settings.
+	@IBAction func signUpWithPermission(_ sender: Any) {
 		guard let coordinator = coordinator as? MainCoordinator else {
 			fatalError("Cannot access Main Coordinator")
 		}
